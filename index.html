@@ -138,19 +138,17 @@
 (() => {
   // ===== DM-EINSTELLUNGEN =====
   const N = 27; // 3x3x3-Gitter
-  const LETTER_ORDER = ["K","R","I","S","T","A","L","L"]; // Lösung in Reihenfolge
+  const LETTER_ORDER = ["P","L","A","T","I","N"]; // Lösung in Reihenfolge
 
   // feste Indizes der Lösungsbuchstaben
-  const letterIndices = {
-    K:  2,
-    R:  5,
-    I:  8,
-    S: 10,
-    T: 12,
-    A: 14,
-    L1: 18,
-    L2: 22
-  };
+const letterIndices = {
+  P: 2,
+  L: 5,
+  A: 8,
+  T: 10,
+  I: 12,
+  N: 14
+};
 
   const REVEAL_TEXT = `
     <b>Aus Chaos wird Ordnung. Aus Stein wird Kristall. Des Steins Perfektion.</b><br><br>
@@ -201,18 +199,16 @@
   // ===== LABELS & FARBEN =====
   const labelMap = new Map();
   // echte Lösungspunkte
-  labelMap.set(letterIndices.K,  "K");
-  labelMap.set(letterIndices.R,  "R");
-  labelMap.set(letterIndices.I,  "I");
-  labelMap.set(letterIndices.S,  "S");
-  labelMap.set(letterIndices.T,  "T");
-  labelMap.set(letterIndices.A,  "A");
-  labelMap.set(letterIndices.L1, "L");
-  labelMap.set(letterIndices.L2, "L");
+labelMap.set(letterIndices.P, "P");
+labelMap.set(letterIndices.L, "L");
+labelMap.set(letterIndices.A, "A");
+labelMap.set(letterIndices.T, "T");
+labelMap.set(letterIndices.I, "I");
+labelMap.set(letterIndices.N, "N");
 
   // falsche Buchstaben: NICHT K,R,I,S,T,A,L
-  const forbidden = new Set(["K","R","I","S","T","A","L"]);
-  const alphabet = "BCDEFGHJMNPQUVWXYZ"; // absichtlich ohne K,R,I,S,T,A,L
+const forbidden = new Set(["P","L","A","T","I","N"]);
+const alphabet = "BCDEFGHJKMOQRSUVWXYZ"; // absichtlich ohne K,R,I,S,T,A,L
   let alphaIdx = 0;
   for (let i = 0; i < N; i++) {
     if (labelMap.has(i)) continue; // Lösungspunkte auslassen
