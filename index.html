@@ -218,12 +218,12 @@ const alphabet = "BCDEFGHJKMOQRSUVWXYZ"; // absichtlich ohne K,R,I,S,T,A,L
     labelMap.set(i, letter);
   }
 
-  function rimColorForLabel(label) {
-    if (["K","R","I","S","T","A","L"].includes(label)) {
-      return "rgba(207,224,255,1)";
-    }
-    return "rgba(255,220,150,.9)";
+function rimColorForLabel(label) {
+  if (["P","L","A","T","I","N"].includes(label)) {
+    return "rgba(207,224,255,1)";
   }
+  return "rgba(255,220,150,.9)";
+}
 
   const colorPalette = {
     blue:  { inner: "#f8f9ff", mid: "#a5baff" },
@@ -352,7 +352,7 @@ const alphabet = "BCDEFGHJKMOQRSUVWXYZ"; // absichtlich ohne K,R,I,S,T,A,L
   const scale = [0, 3, 5, 7, 10, 12];
   function baseForLabel(label) {
     if (["A","I"].includes(label)) return 220;
-    if (["K","R","S","T","L"].includes(label)) return 246;
+    if (["P","L","T","N",].includes(label)) return 246;
     return 196;
   }
   function toneForPoint(i) {
@@ -431,7 +431,7 @@ const alphabet = "BCDEFGHJKMOQRSUVWXYZ"; // absichtlich ohne K,R,I,S,T,A,L
     const candidates = [];
     for (let i = 0; i < N; i++) {
       const label = labelMap.get(i);
-      const isSolutionLetter = ["K","R","I","S","T","A","L"].includes(label);
+      const isSolutionLetter = ["P","L","A","T","I","N"].includes(label);
       if (isSolutionLetter) continue;
       if (moveMask[i]) continue;
       candidates.push(i);
@@ -452,7 +452,7 @@ const alphabet = "BCDEFGHJKMOQRSUVWXYZ"; // absichtlich ohne K,R,I,S,T,A,L
 
     const label = labelMap.get(i);
     const needed = LETTER_ORDER[progress];
-    const isSolutionLetter = ["K","R","I","S","T","A","L"].includes(label);
+    const isSolutionLetter = ["P","L","A","T","I","N"].includes(label);
     const alreadySolved = solvedMask[i];
 
     if (isSolutionLetter && label === needed && !alreadySolved) {
